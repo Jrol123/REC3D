@@ -57,6 +57,13 @@ class Events:
 
     @classmethod
     def remove(cls, event: str, function: type(add)):
+        """
+        1
+
+        """
+        if len(cls.event_data[event]) < 2:
+            del cls.event_data[event]
+            return
         for i in range(len(cls.event_data[event])):
             if cls.event_data[event][i] is function:
                 del cls.event_data[event][i]
@@ -194,12 +201,14 @@ def launch(console: Console, camera_type: str = 'spectator'):
 
     :param console: Консоль
     :type console: Console
-    :param camera_type: тип камеры ('spectator' или 'player')
+    :param camera_type: Тип камеры ('spectator' или 'player')
     :type camera_type: str
     :ivar init_camera: Начальное положение камеры.
     :type init_camera: Spectator
+
     """
     assert camera_type in ('spectator', 'player')
+    is_alive = True
     if camera_type == 'spectator':
         temp = console.cam
         console.cam = Spectator(temp.pos, temp.look_dir,
@@ -212,9 +221,9 @@ def launch(console: Console, camera_type: str = 'spectator'):
             Закрытие консоли
 
             """
+            nonlocal is_alive
+            is_alive = False
             print("Work was stopped with exit code 1")
-            sys.exit()
-            # raise SystemExit("Work was stopped with exit code 1")
 
         def reset_camera():
             """
@@ -226,12 +235,13 @@ def launch(console: Console, camera_type: str = 'spectator'):
             pag.moveTo(pag.size()[0] // 2, pag.size()[1] // 2)  # центр экрана
             console.draw()
 
-        def mv1(action: str):
+        def mv1(action: str) -> None:
             """
             Функция — триггер
 
             :param action: ключевое слово
             :type action: str
+            :return type: None
 
             """
             console.cam = Events.trigger(action, console.cam)
@@ -252,7 +262,7 @@ def launch(console: Console, camera_type: str = 'spectator'):
         curr_pos = pag.position()
 
         # Поворот камеры с помощью мыши
-        while True:
+        while is_alive:
             something_happened = False
             new_pos = pag.position()
 

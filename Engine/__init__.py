@@ -10,7 +10,7 @@
     pyautogui
     configparser
 
-Artemii Popovkin [https://github.com/Jrol123/IMKT-FEFU/]
+Artemii Popovkin [https://github.com/Jrol123/REC3D]
 angap4@gmail.com
 
 # License: MIT

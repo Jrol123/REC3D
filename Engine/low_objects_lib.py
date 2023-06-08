@@ -38,10 +38,12 @@ class Point:
     """
     Класс для представления точки в трехмерном пространстве.
 
-    *более подробное описание
-
     :ivar coords: Координаты точки.
     :type coords: list[float].
+
+    :param obj: Список координат точки в формате (x, y, z).
+    :type obj: tuple[float]
+    :raise AttributeError: Если были введены не 3 координаты
 
     """
 
@@ -52,6 +54,7 @@ class Point:
         :param obj: Список координат точки в формате (x, y, z).
         :type obj: tuple[float]
         :raise AttributeError: Если были введены не 3 координаты
+
         """
         if len(obj) == 3 and all(isinstance(obj[i], (int, float)) for i in range(0, 2 + 1)):
             self.coords = list(obj)
@@ -90,13 +93,16 @@ class Point:
         assert other != 0
         return self.__mul__(1 / other)
 
-    def distance(self, pt):
+    def distance(self, other):
         """
         Дистанция между двумя точками
+        
+        :param other:
+        :type other: Point
+        
         """
 
-        return math.sqrt(sum((self.coords[i] - pt.coords[i]) ** 2
-                             for i in range(3)))
+        return math.sqrt(sum((self.coords[i] - other.coords[i]) ** 2 for i in range(3)))
 
 
 class Vector:
@@ -242,6 +248,7 @@ class Map:
 class Ray:
     """
     Луч
+
     """
     def __init__(self, ipt: Point, direction: Vector):
         self.inpt = ipt
