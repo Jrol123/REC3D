@@ -1,5 +1,6 @@
 """
-Рабочее пространство
+Поле для демонстрации работы движка.
+
 """
 from Engine import Point, Vector, Map, Camera, Console, Plane, BoundedPlane, Sphere, Cube, launch
 

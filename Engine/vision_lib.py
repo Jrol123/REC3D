@@ -1,5 +1,6 @@
 """
 Библиотека, ответственная за объекты, отвечающие за отрисовку объектов
+
 """
 import configparser
 import numpy as np
@@ -11,7 +12,7 @@ from high_objects_lib import BoundedPlane
 from low_objects_lib import Map
 
 config = configparser.ConfigParser()
-config.read("config.cfg")
+config.read("game_config.cfg")
 height = int(config['SCREEN']['height'])
 width = int(config['SCREEN']['width'])
 
@@ -21,11 +22,13 @@ class Camera:
                  fov, draw_dist):
         """
 
+
         :param position: Расположение.
         :param look_dir: Направление камеры (Vector).
         :param fov: Горизонтальный угол обзора.
         :param vfov: = fov * W / H - вертикальный угол обзора
         :param draw_dist: Дистанция прорисовки.
+
         """
         self.pos = position
         self.look_dir = look_dir.normalize()

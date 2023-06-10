@@ -1,5 +1,6 @@
 """
 Библиотека, отвечающая за различные действия, зависящие от пользователя
+
 """
 import sys
 
@@ -14,7 +15,7 @@ from low_objects_lib import Vector
 from high_objects_lib import BoundedPlane
 
 config = configparser.ConfigParser()
-config.read("config.cfg")
+config.read("game_config.cfg")
 
 sensitivity = float(config['PLAYER']['sensitivity'])
 speed = float(config['PLAYER']['speed'])
