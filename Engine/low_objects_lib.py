@@ -148,6 +148,7 @@ class Vector:
     def __mul__(self, other):
         """
         Умножение на число, скалярное произведение векторов.
+
         """
         if isinstance(other, Vector):
             return sum(self.point.coords[i] * other.point.coords[i]
