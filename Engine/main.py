@@ -4,19 +4,25 @@
 from Engine import Point, Vector, Map, Camera, Console, Plane, BoundedPlane, Sphere, Cube, launch
 
 
-cam = Camera(Point(-2, 0, 0), Vector(1, 0, 0), 90, 20)
+cam = Camera(Point(-6, 2, 0), Vector(1, 0, 0), 90, 20)
 
 map1 = Map()
-# map1.append(Sphere(Point(1, 0.5, 0), Vector(0, 0, 1), 0.8))
-# map1.append(Sphere(Point(1, 0.5, -2), Vector(0, 10, 0), 0.8))
-# map1.append(Sphere(Point(1, 0.5, -4), Vector(0, 1, 0), 0.8))
-map1.append(Cube(Point(10, 0, 0), Vector(1, 0, 0), 1/2))
-map1.append(Sphere(Point(2, 0, 0), Vector(1, 0, 0), 1))
-map1.append(BoundedPlane(Point(12, 0, 8), Vector(-1, 0, 0), 2, 2))
+
+b_place = 4
+
+map1.append(BoundedPlane(Point(10, 3, 0), Vector(1, 0, 0), 1, 3))
+map1.append(BoundedPlane(Point(10, 6, 0), Vector(0, 1, 0), 4, 1))
+
+map1.append(Cube(Point(10, 1.5, -b_place), Vector(1, 0, 0), 3))
+map1.append(Cube(Point(10, 1.5, b_place), Vector(1, 0, 0), 3))
+map1.append(Sphere(Point(9, 4, -b_place), Vector(1, 0, 0), 1))
+map1.append(Sphere(Point(9, 4, b_place), Vector(1, 0, 0), 1))
 
 cons = Console(map1, cam)
-# cons.map[0].pr.rotate(45, 0, 0)
-cons.map[0].pr.scaling(2)
-print(*cons.map[0].edges, sep='\n')  # Статус куба
 
 launch(cons)
+
+
+
+
+

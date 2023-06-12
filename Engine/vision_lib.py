@@ -119,4 +119,5 @@ class Console(Canvas):
 
             output_screen += '\n'
 
+        print('\n')
         print(output_screen)
