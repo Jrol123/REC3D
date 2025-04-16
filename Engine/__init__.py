@@ -16,10 +16,10 @@ angap4@gmail.com
 # License: MIT
 """
 
-from low_objects_lib import Point, Vector, VectorSpace, Ray, Map
-from high_objects_lib import Plane, BoundedPlane, Cube, Sphere
-from vision_lib import Camera, Console
-from action_lib import launch
+from .low_objects_lib import Point, Vector, VectorSpace, Ray, Map
+from .high_objects_lib import Plane, BoundedPlane, Cube, Sphere
+from .vision_lib import Camera, Console
+from .action_lib import launch
 
 __author__ = 'Artemii Popovkin'
 

@@ -9,10 +9,10 @@ import pyautogui as pag
 import math
 import configparser
 
-from vision_lib import Camera
-from vision_lib import Console
-from low_objects_lib import Vector
-from high_objects_lib import BoundedPlane
+from .vision_lib import Camera
+from .vision_lib import Console
+from .low_objects_lib import Vector
+from .high_objects_lib import BoundedPlane
 
 config = configparser.ConfigParser()
 config.read("config.cfg")

@@ -5,10 +5,10 @@ import configparser
 import numpy as np
 import math
 
-from low_objects_lib import Point, Vector, Ray
-from high_objects_lib import BoundedPlane
+from .low_objects_lib import Point, Vector, Ray
+from .high_objects_lib import BoundedPlane
 
-from low_objects_lib import Map
+from .low_objects_lib import Map
 
 config = configparser.ConfigParser()
 config.read("config.cfg")
