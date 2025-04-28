@@ -16,8 +16,3 @@ map1.append(Cube(Point(0, 0, 0), Vector(1, 0, 1), 1))
 cons = Console(map1, cam)
 
 launch(cons)
-
-
-
-
-
