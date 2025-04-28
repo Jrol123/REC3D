@@ -40,11 +40,6 @@ cons = Console(map1, cam)
 
 launch(cons)
 
-
-
-
-
-
 ```
 
 Результат:
